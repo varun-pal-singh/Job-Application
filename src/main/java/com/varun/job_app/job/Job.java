@@ -1,12 +1,37 @@
 package com.varun.job_app.job;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.varun.job_app.company.Company;
+import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
+
+@Entity
+//@Table(name = "job_table")
 public class Job {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+//    @JsonIgnore
+    @ManyToOne
+    private Company company;
+
+    public Job() {
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public Job(String title, Long id, String description, String minSalary, String maxSalary, String location) {
         this.title = title;

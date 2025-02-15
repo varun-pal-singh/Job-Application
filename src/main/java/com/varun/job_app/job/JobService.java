@@ -2,10 +2,10 @@ package com.varun.job_app.job;
 
 import java.util.List;
 
-public interface JobService<T> {
-    public List<T> getJobs();                   // get all jobs
-    public T getJob(Long id);                   // get a job
-    public boolean addJob(T job);               // post a job
-    public boolean updateJob(Long id,T job);    // update a job
-    public boolean deleteJob(Long id);          // delete a job
+public interface JobService {
+    List<Job> getJobs();                   // get all jobs
+    Job getJob(Long id);                   // get a job
+    boolean addJob(Job job);               // post a job
+    boolean updateJob(Long id, Job job);    // update a job
+    boolean removeJob(Long id);          // delete a job
 }
